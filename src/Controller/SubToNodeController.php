@@ -68,12 +68,12 @@ class SubToNodeController extends ControllerBase {
       ],
     ]);
 
-    $target_ids_aud = array(1, 2);
+    $target_ids_aud = $submission_array['audience'];
     foreach($target_ids_aud as $target_id){
       $node->field_bulletin_audience->AppendItem($target_id);
     }
 
-    $target_ids_cat = array(12, 15);
+    $target_ids_cat = $submission_array['category'];
     foreach($target_ids_cat as $target_id){
       $node->field_bulletin_category->AppendItem($target_id);
     }

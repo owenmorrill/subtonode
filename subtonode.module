@@ -26,9 +26,11 @@ function subtonode_help($route_name, RouteMatchInterface $route_match) {
 }
 
 function subtonode_page_bottom() {
-  $sid = 5652;
+  $sid = 28;
   $node_details = WebformSubmission::load($sid);
   $node = Node::load($sid);
 
-  //var_dump($node);
+  $submission_array = $node_details->getOriginalData();
+
+  var_dump($submission_array['audience']);
 }
