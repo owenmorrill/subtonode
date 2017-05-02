@@ -25,12 +25,13 @@ function subtonode_help($route_name, RouteMatchInterface $route_match) {
   }
 }
 
-function subtonode_page_bottom() {
+function subtonode_page_bottom(array &$page_bottom) {
   $sid = 28;
   $node_details = WebformSubmission::load($sid);
   $node = Node::load($sid);
 
   $submission_array = $node_details->getOriginalData();
 
-  var_dump($submission_array['audience']);
+  //var_dump($submission_array['audience']);
+  //$page_bottom['subtonode'] = ['#markup' => '<a href="subtonode">Make it so</a>'];
 }

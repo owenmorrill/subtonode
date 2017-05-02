@@ -1,7 +1,7 @@
-subtonode:
-  path: '/admin/structure/webform/manage/{webform}/submission/{sid}/subtonode'
+subtonode.create_node:
+  path: '/admin/structure/webform/manage/{webform}/submission/{webform_submission}/edit/subtonode'
   defaults:
     _controller: '\Drupal\subtonode\Controller\SubToNodeController::subtonode'
     _title: 'Create Node'
   requirements:
-    _permission: 'access content'
+    _permission: 'administer webform submissions'

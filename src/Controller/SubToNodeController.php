@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * This does whatever it wants to.
  */
 
 namespace Drupal\subtonode\Controller;
@@ -13,9 +13,9 @@ use Drupal\file\Entity\File;
 use Drupal\Core\Datetime;
 
 class SubToNodeController extends ControllerBase {
-  public function subtonode($sid) {
+  public function subtonode($webform_submission) {
     //$sid = 2;
-    $node_details = WebformSubmission::load($sid);
+    $node_details = WebformSubmission::load($webform_submission);
     $wf_changed = $node_details->getChangedTime();
     $submission_array = $node_details->getOriginalData();
     $title = $submission_array['title'];
@@ -55,7 +55,7 @@ class SubToNodeController extends ControllerBase {
       'field_bulletin_desired_publicati' => $timestamp,
       'field_desired_publication_date' => '',
       'field_bulletin_reference_submiss' => [
-        'target_id' => $sid,
+        'target_id' => $webform_submission,
       ],
       'field_bulletin_contact_website' => [
         'uri' => $contact_website_uri,
@@ -80,7 +80,7 @@ class SubToNodeController extends ControllerBase {
 
     $node->save();
 
-    return drupal_set_message(t('You have successfully created a node from webform submission @sid', array('@sid' => $sid)), 'success');;
+    return drupal_set_message(t('You have successfully created a node from webform submission @sid', array('@sid' => $webform_submission)), 'success');;
   }
 }
 
